@@ -11,7 +11,12 @@ SqlConnection connectionTest = new SqlConnection("""
     TrustServerCertificate=True;
     
     """);
+
+SqlCommand removeUserCommand = new SqlCommand("""
     
+    DELETE FROM Person WHERE Name = 'Rebecca' AND LastName = 'DeWinter'
+    
+    """, connectionTest);
 
 SqlCommand insertCommand = new SqlCommand("""
     
@@ -21,7 +26,7 @@ SqlCommand insertCommand = new SqlCommand("""
     """, connectionTest);
 
 connectionTest.Open();
-Console.WriteLine(insertCommand.ExecuteNonQuery());
+Console.WriteLine(removeUserCommand.ExecuteNonQuery());
 
 connectionTest.Close();
 
