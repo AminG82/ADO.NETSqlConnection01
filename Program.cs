@@ -16,6 +16,7 @@ SqlCommand insertCommand = new SqlCommand("""
     
     INSERT INTO Person (Name,LastName, Age)
     VALUES ('Rebecca','DeWinter', 23)
+    TrustServerCertificate=True;
     
     """, connectionTest);
 
