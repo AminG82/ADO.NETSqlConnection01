@@ -12,6 +12,13 @@ SqlConnection connectionTest = new SqlConnection("""
     
     """);
 
+SqlCommand alterTable_NationalCode = new SqlCommand("""
+    
+    ALTER TABLE Person
+    ADD NationalCode char(10) NULL
+    
+    """, connectionTest);
+
 SqlCommand removeUserCommand = new SqlCommand("""
     
     DELETE FROM Person WHERE Name = 'Rebecca' AND LastName = 'DeWinter'
@@ -20,13 +27,13 @@ SqlCommand removeUserCommand = new SqlCommand("""
 
 SqlCommand insertCommand = new SqlCommand("""
     
-    INSERT INTO Person (Name,LastName, Age)
-    VALUES ('Rebecca','DeWinter', 23)
+    INSERT INTO Person (Name,LastName, Age ,NationalCode)
+    VALUES ('Rebecca','DeWinter', 23,'0150553196')
     
     """, connectionTest);
 
 connectionTest.Open();
-Console.WriteLine(removeUserCommand.ExecuteNonQuery());
+Console.WriteLine(insertCommand.ExecuteNonQuery());
 
 connectionTest.Close();
 
