@@ -8,6 +8,7 @@ SqlConnection connectionTest = new SqlConnection("""
     
     Server=localhost;Database=TestDB;
     User Id=sa;Password=amin5123;
+    TrustServerCertificate=True;
     
     """);
     
@@ -16,7 +17,6 @@ SqlCommand insertCommand = new SqlCommand("""
     
     INSERT INTO Person (Name,LastName, Age)
     VALUES ('Rebecca','DeWinter', 23)
-    TrustServerCertificate=True;
     
     """, connectionTest);
 
