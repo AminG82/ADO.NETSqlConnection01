@@ -50,6 +50,19 @@ connectionTest.Open();
 int count = (int)countCommand.ExecuteScalar();
 Console.WriteLine(count);
 
+SqlDataReader selectAll = selectCommand.ExecuteReader();
+while (selectAll.Read())
+{
+    Console.WriteLine($"""
+                {selectAll["Name"]}         
+                {selectAll["LastName"]}         
+                {selectAll["Age"]}
+                {selectAll["NationalCode"]} 
+                {selectAll["Email"]}
+                """);
+    Console.WriteLine("************************");
+}
+
 connectionTest.Close();
 
 Console.ReadKey();
