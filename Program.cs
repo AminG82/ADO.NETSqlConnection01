@@ -32,8 +32,16 @@ SqlCommand insertCommand = new SqlCommand("""
     
     """, connectionTest);
 
+SqlCommand selectCommand = new SqlCommand("""
+    
+    SELECT * FROM Person
+    
+    """, connectionTest);
+
 connectionTest.Open();
 Console.WriteLine(insertCommand.ExecuteNonQuery());
+
+
 
 connectionTest.Close();
 
