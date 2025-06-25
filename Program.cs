@@ -38,10 +38,17 @@ SqlCommand selectCommand = new SqlCommand("""
     
     """, connectionTest);
 
+SqlCommand countCommand = new SqlCommand("""
+    
+    SELECT COUNT(*) FROM Person
+    
+    """, connectionTest);
+
 connectionTest.Open();
-Console.WriteLine(insertCommand.ExecuteNonQuery());
+//Console.WriteLine(insertCommand.ExecuteNonQuery());
 
-
+int count = (int)countCommand.ExecuteScalar();
+Console.WriteLine(count);
 
 connectionTest.Close();
 
